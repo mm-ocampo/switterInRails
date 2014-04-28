@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Username:
+  = @swit.username
+%p
+  %b Swit:
+  = @swit.swit
+%p
+  %b Sweet count:
+  = @swit.sweet_count
+%p
+  %b Sour count:
+  = @swit.sour_count
+
+= link_to 'Edit', edit_swit_path(@swit)
+\|
+= link_to 'Back', swits_path
