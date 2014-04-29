@@ -1,16 +1,21 @@
 #sidebar.row
-  #rightHome.large-3.columns
-    #newTweet
-      = form_for Swit.new do |f|
-        .field
-          = f.label :swit
-          = f.text_area :swit
-        .actions
-          = f.submit 'Swit', class: 'button' 
+  #rightHome.large-4.columns
+    .leftUpperPanel
+      #userProfile
 
-  #leftHome.large-9.columns
+      #newTweet
+        = form_for Swit.new do |f|
+          .field
+            = f.text_area :swit, class: 'larg-12 columns', :placeholder => 'Write new swit...', :rows => 5
+          .actions
+            = f.submit 'Swit', class: 'button tiny'
+    .leftLowerPanel
+      #trends
+        %h2 Trending Topics
+
+  #leftHome.large-8.columns
     #newsfeed
-      %h1 Listing swits
+      %h1 Newsfeed
 
       = link_to 'New Swit', new_swit_path
 
