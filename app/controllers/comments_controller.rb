@@ -25,10 +25,6 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-    @comment.sweet_count = 0
-    @comment.sour_count = 0
-    @comment.to_user = "@testUser"
-    @comment.username = "@mmocampo"
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
@@ -72,6 +68,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:to_user, :username, :swit, :sweet_count, :sour_count)
+      params.require(:comment).permit(:comment, :username, :to_swit_id)
     end
 end

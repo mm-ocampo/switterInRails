@@ -1,20 +1,14 @@
 %p#notice= notice
 
 %p
-  %b To user:
-  = @comment.to_user
+  %b Comment:
+  = @comment.comment
 %p
   %b Username:
   = @comment.username
 %p
-  %b Swit:
-  = @comment.swit
-%p
-  %b Sweet count:
-  = @comment.sweet_count
-%p
-  %b Sour count:
-  = @comment.sour_count
+  %b To swit:
+  = @comment.to_swit_id
 
 = link_to 'Edit', edit_comment_path(@comment)
 \|

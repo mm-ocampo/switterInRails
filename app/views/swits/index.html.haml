@@ -1,17 +1,31 @@
-%h1 Listing swits
+#sidebar.row
+  #rightHome.large-3.columns
+    #newTweet
+      = form_for Swit.new do |f|
+        .field
+          = f.label :swit
+          = f.text_area :swit
+        .actions
+          = f.submit 'Swit', class: 'button' 
 
-= link_to 'New Swit', new_swit_path
+  #leftHome.large-9.columns
+    #newsfeed
+      %h1 Listing swits
 
-- @swits.each do |swit|
-  %h3= swit.username
-  = swit.swit
-  %h6
-    Sweet: 
-    = swit.sweet_count
-    Sour:
-    = swit.sour_count
-    = link_to 'Show', swit
-    = link_to 'Comment', new_comment_path(swit.username)
-    = link_to 'Edit', edit_swit_path(swit)
-    = link_to 'Delete', swit, :method => :delete, :data => { :confirm => 'Are you sure?' }
-%br
+      = link_to 'New Swit', new_swit_path
+
+      - @swits.each do |swit|
+        %h3= swit.username
+        = swit.swit
+        %h6
+          Sweet: 
+          = swit.sweet_count
+          Sour:
+          = swit.sour_count
+          = link_to 'Show', swit
+          = link_to 'Comment', new_comment_path(swit.username)
+          = link_to 'Edit', edit_swit_path(swit)
+          = link_to 'Delete', swit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %br
+
+  

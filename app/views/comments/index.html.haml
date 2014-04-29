@@ -1,14 +1,23 @@
-- @comments.each do |comment|
-  %h3= comment.username
-  = comment.to_user
-  = comment.swit
-  %h6
-    Sweet:
-    = comment.sweet_count
-    Sour: 
-    = comment.sour_count
-    = link_to 'Show', comment
-    = link_to 'Comment', new_comment_path(comment.username)
-    = link_to 'Edit', edit_comment_path(comment)
-    = link_to 'Delete', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%h1 Listing comments
+
+%table
+  %tr
+    %th Comment
+    %th Username
+    %th To swit
+    %th
+    %th
+    %th
+
+  - @comments.each do |comment|
+    %tr
+      %td= comment.comment
+      %td= comment.username
+      %td= comment.to_swit_id
+      %td= link_to 'Show', comment
+      %td= link_to 'Edit', edit_comment_path(comment)
+      %td= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
 %br
+
+= link_to 'New Comment', new_comment_path

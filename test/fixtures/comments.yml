@@ -1,15 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  to_user: MyString
+  comment: MyString
   username: MyString
-  swit: MyString
-  sweet_count: 1
-  sour_count: 1
+  to_swit_id: 1
 
 two:
-  to_user: MyString
+  comment: MyString
   username: MyString
-  swit: MyString
-  sweet_count: 1
-  sour_count: 1
+  to_swit_id: 1

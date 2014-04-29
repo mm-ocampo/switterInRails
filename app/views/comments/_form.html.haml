@@ -7,7 +7,13 @@
           %li= msg
 
   .field
-    = f.label :swit
-    = f.text_field :swit
+    = f.label :comment
+    = f.text_field :comment
+  .field
+    = f.label :username
+    = f.text_field :username
+  .field
+    = f.label :to_swit_id
+    = f.number_field :to_swit_id
   .actions
-    = f.submit 'Comment'
+    = f.submit 'Save'
