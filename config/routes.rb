@@ -1,4 +1,8 @@
 SwitterV3::Application.routes.draw do
+  resources :sours
+
+  resources :sweets
+
   resources :comments
   resources :swits
   resources :users

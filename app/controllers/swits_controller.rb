@@ -10,6 +10,7 @@ class SwitsController < ApplicationController
   # GET /swits/1
   # GET /swits/1.json
   def show
+    @comments = Comment.all
   end
 
   # GET /swits/new
@@ -27,12 +28,13 @@ class SwitsController < ApplicationController
   # POST /swits.json
   def create
     @swit = Swit.new(swit_params)
+    @swit.username = 'mm-ocampo'
     @swit.sweet_count = 0
     @swit.sour_count = 0
     respond_to do |format|
       if @swit.save
-        format.html { redirect_to @swit, notice: 'Swit was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @swit }
+        format.html { redirect_to action: 'index', notice: 'Swit was successfully created.' }
+        format.json { render action: 'index', status: :created, location: @swit }
       else
         format.html { render action: 'new' }
         format.json { render json: @swit.errors, status: :unprocessable_entity }
@@ -45,19 +47,13 @@ class SwitsController < ApplicationController
   def update
     respond_to do |format|
       if @swit.update(swit_params)
-        format.html { redirect_to @swit, notice: 'Swit was successfully updated.' }
+        format.html { redirect_to action: 'index', notice: 'Swit was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
         format.json { render json: @swit.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def sweet_swit
-  end
-
-  def sour_swit
   end
 
   # DELETE /swits/1

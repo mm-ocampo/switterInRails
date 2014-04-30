@@ -1,0 +1,21 @@
+%h1 Listing sours
+
+%table
+  %tr
+    %th Swit
+    %th Username
+    %th
+    %th
+    %th
+
+  - @sours.each do |sour|
+    %tr
+      %td= sour.swit_id
+      %td= sour.username
+      %td= link_to 'Show', sour
+      %td= link_to 'Edit', edit_sour_path(sour)
+      %td= link_to 'Destroy', sour, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Sour', new_sour_path

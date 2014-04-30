@@ -1,3 +1,4 @@
+#comment_box
 = form_for @comment do |f|
   - if @comment.errors.any?
     #error_explanation
@@ -5,15 +6,8 @@
       %ul
         - @comment.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :comment
-    = f.text_field :comment
-  .field
-    = f.label :username
-    = f.text_field :username
-  .field
-    = f.label :to_swit_id
-    = f.number_field :to_swit_id
-  .actions
-    = f.submit 'Save'
+  .row.large-12.columns
+    .field
+      = f.text_field :comment, :placeholder => 'Write new comment...'
+    .actions
+      = f.submit 'Comment', :class => 'button'

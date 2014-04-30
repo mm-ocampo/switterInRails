@@ -1,18 +1,36 @@
 %p#notice= notice
 
-%p
-  %b Username:
-  = @swit.username
-%p
-  %b Swit:
-  = @swit.swit
-%p
-  %b Sweet count:
-  = @swit.sweet_count
-%p
-  %b Sour count:
-  = @swit.sour_count
+#switbox
+	%h3=@swit.swit
+	%h6
+		Posted by
+		= @swit.username
+		on
+		= @swit.created_at
+	Sweet:
+	= @swit.sweet_count
+	Sour: 
+	= @swit.sour_count
 
-= link_to 'Edit', edit_swit_path(@swit)
-\|
-= link_to 'Back', swits_path
+	%dl.sub-nav
+		%dd.active 
+			= link_to 'Sweet', new_sweet_path(@swit.id) 
+		%dd
+			= link_to 'Sour', new_sour_path(@swit.id)
+		%dd
+			= link_to 'Comment', new_comment_path(@swit.username)
+		%dd
+			= link_to 'Edit', edit_swit_path(@swit)
+		%dd
+			= link_to 'Delete', @swit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+#commentBox
+-@comments.each do |comment|
+	%h6
+		= comment.username
+	= comment.comment
+	Posted on 
+	= comment.created_at
+	\.
+	%br
+	%hr
