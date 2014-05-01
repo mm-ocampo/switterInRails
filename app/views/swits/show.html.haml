@@ -13,9 +13,9 @@
 
 		%dl.sub-nav
 			%dd.active 
-				= link_to 'Sweet', new_sweet_path(@swit.id) 
+				= link_to 'Sweet', sweetswit_swits_path(id: swit.id)
 			%dd
-				= link_to 'Sour', new_sour_path(@swit.id)
+				= link_to 'Sour', sourswit_swits_path(id: swit.id)
 			%dd
 				= link_to 'Comment', new_comment_path(@swit.username)
 			%dd

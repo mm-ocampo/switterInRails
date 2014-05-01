@@ -24,6 +24,26 @@ class SwitsController < ApplicationController
   def edit
   end
 
+  def sweetswit
+    @swit = Swit.find_by(id: params[:id])
+    if @swit 
+      @swit.sweet_count = @swit.sweet_count + 1
+      if @swit.save
+        redirect_to swits_path
+      end
+    end
+  end
+
+  def sourswit
+    @swit = Swit.find_by(id: params[:id])
+    if @swit 
+      @swit.sour_count = @swit.sour_count + 1
+      if @swit.save
+        redirect_to swits_path
+      end
+    end
+  end  
+
   # POST /swits
   # POST /swits.json
   def create

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430023319) do
+ActiveRecord::Schema.define(version: 20140430092950) do
 
   create_table "comments", force: true do |t|
     t.string   "comment"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140430023319) do
     t.integer  "to_swit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "swit_id"
   end
 
   create_table "sours", force: true do |t|
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140430023319) do
     t.integer  "sour_count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|

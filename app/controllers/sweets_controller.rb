@@ -16,8 +16,8 @@ class SweetsController < ApplicationController
   def new
     @sweet = Sweet.new
     @sweet.swit_id = params[:id]
-    @sweet.username = Swit.find(params[:id]).username
-    @temp = Swit.find(params[:id]).sweet_count
+    @sweet.username = Swit.find(@sweet.swit_id).username
+    @temp = Swit.find(@sweet.swit_id).sweet_count
     Swit.find(params[:id]).sweet_count = @temp + 1
     @sweet.save
   end

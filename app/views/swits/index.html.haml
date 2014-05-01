@@ -29,7 +29,8 @@
         Sour:
         = swit.sour_count
         = link_to 'Show', swit
-        = link_to 'Sweet', new_sweet_path(swit.id)
+        = link_to 'Sweet', sweetswit_swits_path(id: swit.id)
+        = link_to 'Sour', sourswit_swits_path(id: swit.id)
         = link_to 'Comment', new_comment_path(swit.username)
         = link_to 'Edit', edit_swit_path(swit)
         = link_to 'Delete', swit, :method => :delete, :data => { :confirm => 'Are you sure?' }
