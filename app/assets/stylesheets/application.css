@@ -14,10 +14,17 @@
  *= require_tree .
  */
 
+ html{
+ 	width: 1366px;
+ 	height: 768px;
+ }
+
  #topBanner{
  	background-color: #033649;
  }
 
 #container{
  	background-color: #E8DDCB;
+ 	width:100%;
+ 	height: 100%;
  }

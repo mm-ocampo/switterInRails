@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.to_swit_id = params[:to_swit_id]
-    @comment.username = "Asus"
+    @comment.username = "mm-ocampo"
     respond_to do |format|
       if @comment.save
         format.html { redirect_to swits_path, notice: 'Comment was successfully created.' }

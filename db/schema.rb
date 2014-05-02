@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502021318) do
+ActiveRecord::Schema.define(version: 20140502083127) do
 
   create_table "comments", force: true do |t|
     t.string   "comment"
@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(version: 20140502021318) do
     t.string   "encryptedPassword"
     t.string   "salt"
     t.string   "password_confirmation"
+    t.string   "oldpassword"
+    t.string   "newpassword"
+    t.string   "newpassword_confirmation"
   end
 
 end
