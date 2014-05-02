@@ -1,7 +1,9 @@
-%h1 Editing swit
-
-= render 'form'
-
-= link_to 'Show', @swit
-\|
-= link_to 'Back', swits_path
+.large-7.columns
+	#switbox
+		%h3=@swit.swit
+		%h6
+			Posted by
+			= @swit.username
+			on
+			= @swit.created_at
+	= render 'form'

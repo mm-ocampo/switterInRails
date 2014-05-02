@@ -5,7 +5,10 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     @comments = Comment.all
+    @comment = Comment.new
+    @swit = Swit.find_by(id: params[:id])
   end
+
 
   # GET /comments/1
   # GET /comments/1.json
@@ -25,7 +28,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-    @comment.to_swit_id = 5
+    @comment.to_swit_id = params[:to_swit_id]
     @comment.username = "Asus"
     respond_to do |format|
       if @comment.save

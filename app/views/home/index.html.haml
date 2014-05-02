@@ -1,11 +1,10 @@
 %br
 #banner
-	%h1 Welcome to Switter!
-	%h2
-		%small 
-			Express your insights. Discover something. See what's trending.
+  %h1 Welcome to Switter!
+  %h2
+    %small 
+      Express your insights. Discover something. See what's trending.
 
-#signup
 = form_for @user do |f|
   .field
     = f.label :username
@@ -14,4 +13,4 @@
     = f.label :password
     = f.text_field :password
   .actions
-    = f.submit 'Sign up for Twitter'
+    = f.submit 'Sign Up'

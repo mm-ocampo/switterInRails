@@ -13,11 +13,11 @@
 
 		%dl.sub-nav
 			%dd.active 
-				= link_to 'Sweet', sweetswit_swits_path(id: swit.id)
+				= link_to 'Sweet', sweetswit_swits_path(id: @swit.id)
 			%dd
-				= link_to 'Sour', sourswit_swits_path(id: swit.id)
+				= link_to 'Sour', sourswit_swits_path(id: @swit.id)
 			%dd
-				= link_to 'Comment', new_comment_path(@swit.username)
+				= link_to 'Comment', comments_path(to_swit_id: @swit.id)
 			%dd
 				= link_to 'Edit', edit_swit_path(@swit)
 			%dd
@@ -27,7 +27,7 @@
 	%h5
 		Comments
 	%hr
-	-@comments.each do |comment|
+	-@temps.each do |temp|
 		%h6
 			= comment.username
 		%p 
@@ -36,3 +36,4 @@
 		= comment.created_at
 		%br
 		%hr
+

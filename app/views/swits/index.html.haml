@@ -2,39 +2,66 @@
   #rightHome.large-4.columns
     .leftUpperPanel
       #userProfile
-        %h2.text-center Welcome MM!
-
-      #newTweet
-        = form_for Swit.new do |f|
-          .field
-            = f.text_area :swit, class: 'larg-12 columns', :placeholder => 'Write new swit...', :rows => 5
-          .actions
-            = f.submit 'Swit', class: 'button tiny'
+        %h2#welcome.text-center 
+          Welcome MM!
+        %h6
+          .small-4.columns
+            .subtext 
+              = Swit.count
+            Posted Swits
+          .small-4.columns
+            .subtext 0
+            Followers
+          .small-4.columns
+            .subtext 0
+            Following
+    %br
+    %br
     .leftLowerPanel
       #trends
-        %h3 Trending Topics
+        %h4
+          .trendtitle Trending Topics
+        .trendsample
+          %p Trend 1
+          %p Trend 2
+          %p Trend 3
+          %p Trend 4
+          %p Trend 5
 
   #leftHome.large-8.columns
+    #newTweet
+      = form_for Swit.new do |f|
+        .field
+          = f.text_area :swit, class: 'larg-12 columns', :placeholder => 'Write new swit...', :rows => 5, :style => { background: "black", color: 'red'}
+        .actions
+          #submitbutton
+            = f.submit 'Swit', class: 'button tiny'
+    %h3#newsfeedtitle.text-center Newsfeed
     #newsfeed
-      %h2.text-center Newsfeed
-      - @swits.reverse.each do |swit|
-        %h3= swit.swit
-        %h6
-          Posted by 
-          = swit.username
-          on
-          = swit.created_at 
-        Sweet: 
-        = swit.sweet_count
-        Sour:
-        = swit.sour_count
-        = link_to 'Show', swit
-        = link_to 'Sweet', sweetswit_swits_path(id: swit.id)
-        = link_to 'Sour', sourswit_swits_path(id: swit.id)
-        = link_to 'Comment', new_comment_path(swit.username)
-        = link_to 'Edit', edit_swit_path(swit)
-        = link_to 'Delete', swit, :method => :delete, :data => { :confirm => 'Are you sure?' }
-        %br
-        %hr
+      .switdiv
+        - @swits.reverse.each do |swit|
+          %h3.swit= swit.swit
+          %h6.author_and_datetime
+            Posted by 
+            = swit.username
+            on
+            = swit.created_at 
+          Sweet: 
+          = swit.sweet_count
+          Sour:
+          = swit.sour_count
+          = link_to 'Show', comments_path(id: swit.id)
+          |
+          = link_to 'Sweet', sweetswit_swits_path(id: swit.id)
+          |
+          = link_to 'Sour', sourswit_swits_path(id: swit.id)
+          |
+          = link_to 'Comment', comments_path(id: swit.id)
+          |
+          = link_to 'Edit', edit_swit_path(swit)
+          |
+          = link_to 'Delete', swit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %br
+          %hr
 
   

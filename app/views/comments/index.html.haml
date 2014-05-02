@@ -1,23 +1,44 @@
-%h1 Listing comments
+#thread.large-7.columns
+  #switbox
+    %h3.swittext 
+      = @swit.swit
+    %h6.datetime
+      Posted by
+      = @swit.username
+      on
+      = @swit.created_at
+    .sweetsour
+      Sweet:
+      = @swit.sweet_count
 
-%table
-  %tr
-    %th Comment
-    %th Username
-    %th To swit
-    %th
-    %th
-    %th
+      Sour: 
+      = @swit.sour_count
 
-  - @comments.each do |comment|
-    %tr
-      %td= comment.comment
-      %td= comment.username
-      %td= comment.to_swit_id
-      %td= link_to 'Show', comment
-      %td= link_to 'Edit', edit_comment_path(comment)
-      %td= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %dl.sub-nav
+      %dd.active 
+        = link_to 'Sweet', sweetswit_swits_path(id: @swit.id)
+      %dd
+        = link_to 'Sour', sourswit_swits_path(id: @swit.id)
+      %dd
+        = link_to 'Edit', edit_swit_path(@swit)
+      %dd
+        = link_to 'Delete', @swit, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
+  #commentBox
+  %h5#titlebox
+    Comments
+  #commentThread
+    -@comments.each do |comment|
+      %h6.username
+        = comment.username
+      %p.comment 
+        = comment.comment
+      .datetime 
+        Posted on 
+        = comment.created_at
+      %br
+      %hr
 
-= link_to 'New Comment', new_comment_path
+#commentArea.large-7.columns
+  = render 'form'
+

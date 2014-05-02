@@ -13,3 +13,11 @@
 
  *= require_tree .
  */
+
+ #topBanner{
+ 	background-color: #033649;
+ }
+
+#container{
+ 	background-color: #E8DDCB;
+ }

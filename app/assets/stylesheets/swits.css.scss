@@ -1,3 +1,64 @@
 // Place all the styles related to the Swits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#userProfile{
+	height: 150px;
+	background-color: #CDB380;
+	margin-top: 25px;
+}
+
+#trends{
+	height: 340px;
+	background-color: #CDB380;
+}
+
+#welcome{
+	color: #033649;
+}
+
+.subtext{
+	color: #036564;
+	text-align: center;
+}
+
+hr{
+	border-style: solid;
+	border-width: 2px;
+	border-color: #E8DDCB;
+}
+
+.trendtitle{
+	text-align: center;
+	background-color: #033649;
+	color: #CDB380;
+}
+
+.trendsample{
+	color: #036564;
+	margin-left: 25px;
+}
+
+#newsfeed{
+	height: 340px;
+	overflow-y:auto;
+}
+
+#newTweet{
+	margin-top: 25px;
+}
+
+#newsfeedtitle{
+	background-color: #033649;
+	color: #CDB380;
+}
+
+.switdiv{
+	background-color: #CDB380;
+	padding: 10px 10px;
+}
+
+.swit{
+	color: #033649;
+}
+
